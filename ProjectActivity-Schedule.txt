@@ -1,0 +1,1 @@
+WAP-Class Project Activity PlanSunday	-Login Page	-User’s music page	-Server MVC setup	-Storage sessionMonday	-Implement the endpoints at the server side	-Client rendering of dataTuesday	-Music player feature
