@@ -16,6 +16,10 @@ body{
 #login{
     padding-top: 30px;
 }
+#loginFail{
+    display: none;
+    color: red;
+}
 
 #content-body{
     height: 70%;
@@ -41,6 +45,13 @@ body{
     width: 100px;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+.sub-button:hover{
+    background-color: aquamarine;
+    border: none;
+    color: #1c2431;
+    font-weight: bolder;
+    font-size: larger;
 }
 /* #main-container{
     position: absolute;
