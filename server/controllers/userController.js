@@ -11,7 +11,7 @@ module.exports.fetchSongs = (req, res) => {
     res.json(songs);
 }
 
-module.exports.fetchSessionStrings = (req, res) => {
-    let sessionCollection = userModel.getSessionStrings();
-    res.json(sessionCollection);
+module.exports.fetchPlaylist = (req, res) => {
+    let songList = userModel.getPlayList();
+    res.json(songList);
 }

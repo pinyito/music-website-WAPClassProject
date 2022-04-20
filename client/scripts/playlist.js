@@ -14,13 +14,11 @@ document.addEventListener('DOMContentLoaded',function(){
     .then(data => loadMusic(data));
 });
 
-//Fetch user playlist******* 
-document.addEventListener('DOMContentLoaded',function(){
-    let songUrl = `http://localhost:3000/${username}`;
-    fetch(songUrl)
-    .then(response => response.json())
-    .then(data => loadMusic(data));
-});
+//Fetch Playlist
+let playlistUrl = 'http://localhost:3000/playlist';
+fetch(playlistUrl)
+.then(response => response.json())
+.then(listData => loadPlaylist(listData));
 
 //Helper functions
 function loadMusic(music){
@@ -46,4 +44,27 @@ function loadMusic(music){
         });
         table.innerHTML = display;
     }
+}
+
+function loadPlaylist(songCollection){
+
+    const songBody = document.querySelector('#playlist table tbody');
+    let displayList = "";
+
+    if(songCollection.length == 0){
+        document.getElementById('playlist').style.display = 'none';
+    }else if(songCollection.length > 0){
+        document.getElementById('no-song').style.display = 'none';
+
+        let listing = 1;
+        for(let j = 0; j < songCollection.length; j++){
+            displayList += `<tr>
+            <td>${listing}</td>
+            <td>${songCollection[j].title}</td>
+            <td></d>
+            </tr>`;
+        }
+    }
+    songBody.innerHTML = displayList;
+    console.log(songCollection);
 }

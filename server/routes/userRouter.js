@@ -5,6 +5,6 @@ const userController = require('../controllers/userController');
 
 router.post('/login', userController.sendLoginData);
 router.get('/songs', userController.fetchSongs);
-router.get('/session-strings', userController.fetchSessionStrings);
+router.get('/playlist', userController.fetchPlaylist);
 
 module.exports = router;

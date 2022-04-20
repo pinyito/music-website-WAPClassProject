@@ -4,7 +4,13 @@ const users = [
         id: "pinyito1",
         username: "pinyito",
         password: "123",
-        playlist: []
+        playlist: [
+            {
+                id: "1",
+                title: "Song title one",
+                release: new Date()
+            }
+        ]
     },
     {
         id: "eliot2",
@@ -48,7 +54,7 @@ const sessionStrings = [];
 module.exports.verifyUser = function(name, pass){
     let index = users.findIndex(user => user.username === name && user.password === pass);
     if(index > -1){
-        let sessionString = users[index].username + '|' + new Date();
+        let sessionString = users[index].username + new Date();
         sessionStrings.push(sessionString);
         return sessionString;
     }else{
@@ -60,6 +66,6 @@ module.exports.loadSongs = function(){
     return songList;
 }
 
-module.exports.getSessionStrings = function(){
-    return sessionStrings;
+module.exports.getPlayList = function(){
+   return users[0].playlist;
 }

@@ -37,7 +37,7 @@
             </div>
         </div>
         <div id="content-body" class="container">
-            <div id="content" class="col">
+            <div id="songlist" class="col content">
                 <table class="table table-success table-striped">
                     <thead>
                         <tr>
@@ -47,20 +47,63 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody id="song-list-body"></tbody>
                 </table>
             </div>
         </div>
-        <div class="container">
+        <div id="song-selection" class="container">
             <p>
                 <h3>Your Playlist</h3>
-                <h4>No songs in your playlist!</h4>
+                <h4 id="no-song">No songs in your playlist!</h4>
             </p>
+            <div id="playlist" class="col content">
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Index</th>
+                            <th>Title</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
 
         </div>
-        <div id="footer" class="container-fluid">
-            <div class="col">
-                <h6>Music Player Here...</h6>
+        <div id="player-footer" class="container-fluid">
+            <div id="player-footer" class="col">
+                <div id="play-pause-next" class="player-section">
+                    <button type="button" class="btn btn-light player-control">
+                        <i class="fa-solid fa-circle-chevron-left"></i>
+                    </button>
+                    <button type="button" class="btn btn-light player-control">
+                        <i class="fa-regular fa-circle-pause"></i>
+                    </button>
+                    <button type="button" class="btn btn-light player-control">
+                        <i class="fa-solid fa-circle-play"></i>
+                    </button>
+                    <button type="button" class="btn btn-light player-control">
+                        <i class="fa-solid fa-circle-chevron-right"></i>
+                    </button>
+                </div>
+                <div id="music-player" class="player-section">
+                    <audio src="" controls>
+
+                    </audio>
+                </div>
+                <div id="shuffle-repeat" class="player-section">
+                    <div>
+                        <button type="button" class="btn btn-light player-control">
+                            <i class="fa-solid fa-repeat"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-light player-control">
+                            <i class="fa-solid fa-shuffle"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

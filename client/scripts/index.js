@@ -36,8 +36,7 @@
             loginAlert.style.display = "block";
         }
         else{
-            sessionKey = userName.value
-            sessionStorage.setItem(sessionKey, userCredentials);
+            sessionStorage.setItem(userName.value, userCredentials);
             location.href = "playlist.html";
         }
     }
