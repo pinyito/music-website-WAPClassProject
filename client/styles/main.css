@@ -95,3 +95,6 @@ audio{
 #song-selection{
     padding-bottom: 100px;
 }
+.toggle{
+    display: none;
+}

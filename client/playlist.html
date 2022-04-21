@@ -65,7 +65,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="playlistBody">
                     </tbody>
                 </table>
             </div>
@@ -74,16 +74,16 @@
         <div id="player-footer" class="container-fluid">
             <div id="player-footer" class="col">
                 <div id="play-pause-next" class="player-section">
-                    <button type="button" class="btn btn-light player-control">
+                    <button id="previousBtn" type="button" class="btn btn-light player-control">
                         <i class="fa-solid fa-circle-chevron-left"></i>
                     </button>
-                    <button type="button" class="btn btn-light player-control">
+                    <button id="pauseBtn" type="button" class="btn btn-light player-control toggle">
                         <i class="fa-regular fa-circle-pause"></i>
                     </button>
-                    <button type="button" class="btn btn-light player-control">
+                    <button id="playBtn" type="button" class="btn btn-light player-control">
                         <i class="fa-solid fa-circle-play"></i>
                     </button>
-                    <button type="button" class="btn btn-light player-control">
+                    <button id="nextBtn" type="button" class="btn btn-light player-control">
                         <i class="fa-solid fa-circle-chevron-right"></i>
                     </button>
                 </div>
@@ -94,12 +94,12 @@
                 </div>
                 <div id="shuffle-repeat" class="player-section">
                     <div>
-                        <button type="button" class="btn btn-light player-control">
+                        <button id="repeatBtn" type="button" class="btn btn-light player-control">
                             <i class="fa-solid fa-repeat"></i>
                         </button>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-light player-control">
+                        <button id="shuffleBtn" type="button" class="btn btn-light player-control toggle">
                             <i class="fa-solid fa-shuffle"></i>
                         </button>
                     </div>
