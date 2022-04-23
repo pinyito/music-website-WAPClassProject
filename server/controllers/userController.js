@@ -15,3 +15,8 @@ module.exports.fetchPlaylist = (req, res) => {
     let songList = userModel.getPlayList();
     res.json(songList);
 }
+
+module.exports.fetchSearchResult = (req, res) => {
+    let searchInput = req.query.song;
+    res.json(userModel.searchSong(searchInput));
+}

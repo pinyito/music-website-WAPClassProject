@@ -98,3 +98,6 @@ audio{
 .toggle{
     display: none;
 }
+#searchResults{
+    display: none;
+}

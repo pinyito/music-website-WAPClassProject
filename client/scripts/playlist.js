@@ -7,6 +7,8 @@ const playButton = document.getElementById('playBtn');
 const pauseButton = document.getElementById('pauseBtn');
 const previousButton = document.getElementById('previousBtn');
 const nextButton = document.getElementById('nextBtn');
+const searchButton = document.getElementById('search-button');
+const searchInput = document.getElementById('search');
 
 
 
@@ -20,6 +22,46 @@ logoutButton.addEventListener('click', function(){
     //Go back to backend and delete session string
     sessionStorage.clear();
     location.href = "index.html";
+});
+
+//Search Song
+searchButton.addEventListener('click', function(){
+    let searchItem = searchInput.value
+    if(searchItem === ""){
+        document.getElementById('content-body').style.display = "block"
+        document.getElementById('searchResults').style.display = "none";
+        alert("Search Input Requireed...");
+    }else{
+        document.getElementById('content-body').style.display = "none"
+        document.getElementById('searchResults').style.display = "block";
+        let searchUrl = `http://localhost:3000/search?song=${searchItem}`;
+        fetch(searchUrl)
+        .then(response => response.json())
+        .then(searchRsult => {
+            const table = document.querySelector('table tbody');
+
+            if(searchRsult.length === 0){
+                table.innerHTML = "<tr><td class='no-data' colspan='4'>No search song available!</tr>";
+            }else{
+                let i = 1;
+                let display = "";
+                searchRsult.forEach(s => {
+                    display = display + `<tr>
+                    <td>${i}</td>
+                    <td>${s.title}</td>
+                    <td>${s.release}</td>
+                    <td>
+                        <button id="song${i}" type="button" class="btn btn-secondary addSong">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </td>
+                    </tr>`;
+                    i++;
+                });
+            table.innerHTML = display;
+        }
+    });
+    }
 });
 
 //Fetch All songs
@@ -72,6 +114,9 @@ document.addEventListener('DOMContentLoaded',function(){
                                 <button type="button" class="btn btn-secondary removeSong">
                                     <i class="fa-solid fa-minus"></i>
                                 </button>
+                                <button id="playBtn" type="button" class="btn btn-light player-control">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                </button>
                             </d>
                         </tr>`;
                     }
@@ -82,6 +127,10 @@ document.addEventListener('DOMContentLoaded',function(){
         }
     });
 });
+
+function loadSongs(){
+    
+}
 
 function toggleButtons(btn1, btn2){
     btn1.addEventListener('click', function(){
@@ -108,7 +157,10 @@ function addToPlaylist(){
             const nextIndexTitle = document.createElement("td");
             nextIndexTitle.innerText = songTitle;
             const nextIndexButtons = document.createElement("td");
-            nextIndexButtons.innerHTML = '<button type="button" class="btn btn-secondary removeSong"><i class="fa-solid fa-minus"></i></button>';
+            nextIndexButtons.innerHTML = `<button type="button" class="btn btn-secondary removeSong"><i class="fa-solid fa-minus"></i></button>
+            <button id="playBtn" type="button" class="btn btn-light player-control">
+                <i class="fa-solid fa-circle-play"></i>
+            </button>`;
             nextRow.appendChild(nextIndexData)
             nextRow.appendChild(nextIndexTitle);
             nextRow.appendChild(nextIndexButtons);
@@ -119,13 +171,4 @@ function addToPlaylist(){
     }
 }
 
-
-function removeFromPlaylist(){
-    const removeBtns = document.getElementsByClassName('removeSong');
-    console.log(removeBtns);
-    for(let i = 0; i < removeBtns.length; i++){
-        removeBtns[i].addEventListener('click', function(){
-            console.log('hello');
-        });
-    }
-}
+//Remove song from playlist...pending feature

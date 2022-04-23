@@ -23,7 +23,7 @@
             <div id="login" class="col">
                 <div class="row g-3">
                     <div class="col">
-                      <input type="text" class="form-control" placeholder="Search Songs" aria-label="Username">
+                      <input id="search" type="text" class="form-control" placeholder="Search Songs" aria-label="Username">
                     </div>
                     <div class="col">
                         <button id="search-button" type="submit" class="btn btn-primary btn-sm sub-button">
@@ -37,6 +37,21 @@
             </div>
         </div>
         <div id="content-body" class="container">
+            <div id="songlist" class="col content">
+                <table class="table table-success table-striped">
+                    <thead>
+                        <tr>
+                            <th>Index</th>
+                            <th>Title</th>
+                            <th>Release Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="song-list-body"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="searchResults" class="container">
             <div id="songlist" class="col content">
                 <table class="table table-success table-striped">
                     <thead>

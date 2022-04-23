@@ -69,3 +69,8 @@ module.exports.loadSongs = function(){
 module.exports.getPlayList = function(){
    return users[0].playlist;
 }
+
+//Implementing Search Feature
+module.exports.searchSong = function(searchItem){
+    return songList.filter(song => song.title.toLowerCase().includes(searchItem.toLowerCase()));
+}
